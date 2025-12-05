@@ -10,6 +10,13 @@ from database import db_instance
 from auth import hash_password, verify_password, generate_token, token_required
 
 app = Flask(__name__)
+@app.route("/")
+def home():
+    return "API Running!"
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
 CORS(app)
 
 # Load model and preprocessors
